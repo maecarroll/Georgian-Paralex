@@ -1,0 +1,248 @@
+{
+  "title": "Georgian Paralex Unimorph Data",
+  "resources": [
+    {
+      "name": "paradigms",
+      "title": "Inflected forms",
+      "path": "Georgian_v_paradigms.csv",
+      "schema": {
+        "name": "paradigms-schema",
+        "fields": [
+          {
+            "name": "form_id",
+            "title": "Form table row identifiers",
+            "description": "These identifiers are specific to form, lexeme, cell triples.",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "unique": true
+            }
+          },
+          {
+            "name": "orth_form",
+            "title": "Inflected form (orthographic)",
+            "description": "The form, given orthographically",
+            "rdfType": "http://purl.org/linguistics/gold/orthographicRep",
+            "type": "string",
+            "missingValues": [
+              "#DEF#"
+            ]
+          },
+          {
+            "name": "phon_form",
+            "title": "Inflected form (phonemic or phonetic)",
+            "description": "The form, given in phonemic or phonetic notation, with sounds separated by spaces",
+            "rdfType": "http://purl.org/linguistics/gold/phonemicRep",
+            "type": "string",
+            "missingValues": [
+              "#DEF#"
+            ],
+            "constraints": {
+              "pattern": "(t͡sʰ|t͡ʃʰ|t͡sʼ|t͡ʃʼ|d͡z|d͡ʒ|pʰ|tʰ|kʰ|pʼ|tʼ|kʼ|qʼ|m|n|b|d|ɡ|s|ʃ|x|h|v|z|ʒ|ɣ|r|l|a|ɛ|i|ɔ|u)( (t͡sʰ|t͡ʃʰ|t͡sʼ|t͡ʃʼ|d͡z|d͡ʒ|pʰ|tʰ|kʰ|pʼ|tʼ|kʼ|qʼ|m|n|b|d|ɡ|s|ʃ|x|h|v|z|ʒ|ɣ|r|l|a|ɛ|i|ɔ|u))*"
+            }
+          },
+          {
+            "name": "POS",
+            "title": "Part of Speech",
+            "description": "The relevant part of speech for this form",
+            "type": "string",
+            "rdfType": "http://purl.org/linguistics/gold/PartOfSpeechProperty"
+          },
+          {
+            "name": "lexeme",
+            "title": "Reference to a lexeme identifier",
+            "description": "Lexeme identifiers must be unique to paradigms.",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "rdfType": "http://purl.org/linguistics/gold/LexicalItem"
+          },
+          {
+            "name": "cell",
+            "title": "Reference to a cell identifier",
+            "description": "The set of feature values as would appear in a gloss, separated by dots, eg. prs.ind.1sg or f.pl",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "rdfType": "http://purl.org/linguistics/gold/FeatureStructure"
+          }
+        ],
+        "primaryKey": "form_id",
+        "foreignKeys": [
+          {
+            "fields": "cell",
+            "reference": {
+              "resource": "cells",
+              "fields": "cell_id"
+            }
+          }
+        ]
+      },
+      "profile": "tabular-data-resource",
+      "scheme": "file",
+      "format": "csv",
+      "hashing": "md5",
+      "encoding": "utf-8"
+    },
+    {
+      "name": "sounds",
+      "title": "Sound inventory with distinctive features",
+      "path": "Georgian_v_sounds.csv",
+      "schema": {
+        "name": "sounds-schema",
+        "missingValues": [
+          ""
+        ],
+        "fields": [
+          {
+            "name": "sound_id",
+            "title": "sound representation",
+            "rdfType": "http://purl.org/linguistics/gold/FormUnit",
+            "constraints": {
+              "required": true,
+              "unique": true
+            }
+          },
+          {
+            "name": "value",
+            "type": "any"
+          },
+          {
+            "name": "tier",
+            "type": "any"
+          }
+        ],
+        "primaryKey": "sound_id"
+      },
+      "profile": "tabular-data-resource",
+      "scheme": "file",
+      "format": "csv",
+      "hashing": "md5",
+      "encoding": "utf-8"
+    },
+    {
+      "name": "cells",
+      "title": "Paradigm cells",
+      "path": "Georgian_v_cells.csv",
+      "schema": {
+        "name": "cells-schema",
+        "fields": [
+          {
+            "name": "cell_id",
+            "title": "Cell identifier",
+            "description": "The set of feature values as would appear in a gloss, separated by dots, eg. prs.ind.1sg or f.pl",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "unique": true,
+              "pattern": "(present-subjunctive|perfect-subjunctive|masdar-imperfective|present-indicative|future-subjunctive|present-perfect|masdar-perfect|conditional|imperative|pluperfect|imperfect|optative|ARGNOSG|ARGNOPL|ARGACSG|ARGACPL|ARGNO1|ARGNO3|ARGNO3|ARGAC1|ARGAC2|ARGAC3|future|aorist)(\\.(present-subjunctive|perfect-subjunctive|masdar-imperfective|present-indicative|future-subjunctive|present-perfect|masdar-perfect|conditional|imperative|pluperfect|imperfect|optative|ARGNOSG|ARGNOPL|ARGACSG|ARGACPL|ARGNO1|ARGNO3|ARGNO3|ARGAC1|ARGAC2|ARGAC3|future|aorist))*"
+            },
+            "rdfType": "http://purl.org/linguistics/gold/FeatureStructure"
+          },
+          {
+            "name": "POS",
+            "title": "Part of Speech",
+            "description": "The relevant part of speech for this form",
+            "type": "string",
+            "rdfType": "http://purl.org/linguistics/gold/PartOfSpeechProperty"
+          },
+          {
+            "name": "unimorph",
+            "title": "Cell in unimorph format",
+            "description": "The cell, written following the unimorph schema",
+            "type": "string"
+          }
+        ],
+        "primaryKey": "cell_id"
+      },
+      "profile": "tabular-data-resource",
+      "scheme": "file",
+      "format": "csv",
+      "hashing": "md5",
+      "encoding": "utf-8"
+    },
+    {
+      "name": "features-values",
+      "title": "Grammatical features values",
+      "path": "Georgian_v_features.csv",
+      "schema": {
+        "name": "features-values-schema",
+        "fields": [
+          {
+            "name": "value_id",
+            "title": "Grammatical Feature value identifier",
+            "description": "Identifier for the grammatical feature value (as found in the cell)",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "unique": true
+            },
+            "rdfType": "http://purl.org/linguistics/gold/FeatureStructure"
+          },
+          {
+            "name": "value_label",
+            "title": "feature value label",
+            "description": "The full label of the feature value (morpho syntactic property), eg. nominative, past, passive, neuter, first person, etc.",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "rdfType": "http://purl.org/linguistics/gold/MorphosyntacticProperty"
+          },
+          {
+            "name": "feature",
+            "title": "feature",
+            "description": "The name of the dimension of this feature, eg. case, tense, modality, voice, force, gender, evidentiality, person, number, polarity...",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "rdfType": "http://purl.org/linguistics/gold/MorphosyntacticProperty"
+          },
+          {
+            "name": "POS",
+            "title": "Part of Speech",
+            "description": "The relevant part of speech for this form",
+            "type": "string",
+            "rdfType": "http://purl.org/linguistics/gold/PartOfSpeechProperty"
+          },
+          {
+            "name": "canonical_order",
+            "title": "Sorting order for visual presentation",
+            "description": "The order in which features are canonically presented. Use integers to represent relative order, order is used per-featureF.",
+            "type": "integer"
+          }
+        ],
+        "primaryKey": "value_id"
+      },
+      "profile": "tabular-data-resource",
+      "scheme": "file",
+      "format": "csv",
+      "hashing": "md5",
+      "encoding": "utf-8"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "GPL-3.0",
+      "title": "GNU General Public License 3.0",
+      "path": "https://opensource.org/licenses/GPL-3.0"
+    }
+  ],
+  "profile": "data-package",
+  "keywords": [
+    "Georgian",
+    "paradigms"
+  ],
+  "citation": "Carroll, MJ (2022). Georgian Verbal Paradigms Paralex dataset. Online.",
+  "version": "1.0.0",
+  "id": "",
+  "contributors": [
+    {
+      "title": "MJ Carroll",
+      "role": "author"
+    }
+  ]
+}

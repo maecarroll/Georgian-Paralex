@@ -1,0 +1,25 @@
+value_id,value_label,feature,POS,canonical_order
+ARGNO1,first,nominative person,V,1
+ARGNO3,second,nominative person,V,2
+ARGNO3,third,nominative person,V,3
+ARGNOSG,singular,nominative number,V,1
+ARGNOPL,plural,nominative number,V,2
+ARGAC1,first,accusative person,V,1
+ARGAC2,second,accusative person,V,2
+ARGAC3,third,accusative person,V,3
+ARGACSG,singular,accusative number,V,1
+ARGACPL,plural,accusative number,V,2
+present-indicative,present-indicative,TAM,V,1
+imperfect,imperfect,TAM,V,2
+present-subjunctive,present-subjunctive,TAM,V,3
+future,future,TAM,V,4
+conditional,conditional,TAM,V,5
+future-subjunctive,future-subjunctive,TAM,V,6
+aorist,aorist,TAM,V,7
+optative,optative,TAM,V,8
+imperative,imperative,TAM,V,9
+present-perfect,present-perfect,TAM,V,10
+pluperfect,pluperfect,TAM,V,11
+perfect-subjunctive,perfect-subjunctive,TAM,V,12
+masdar-imperfective,masdar-imperfective,TAM,V,13
+masdar-perfect,masdar-perfect,TAM,V,14
