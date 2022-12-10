@@ -1,6 +1,6 @@
 value_id,value_label,feature,POS,canonical_order
 ARGNO1,first,nominative person,V,1
-ARGNO3,second,nominative person,V,2
+ARGNO2,second,nominative person,V,2
 ARGNO3,third,nominative person,V,3
 ARGNOSG,singular,nominative number,V,1
 ARGNOPL,plural,nominative number,V,2

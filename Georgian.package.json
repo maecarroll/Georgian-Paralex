@@ -137,7 +137,7 @@
             "constraints": {
               "required": true,
               "unique": true,
-              "pattern": "(present-subjunctive|perfect-subjunctive|masdar-imperfective|present-indicative|future-subjunctive|present-perfect|masdar-perfect|conditional|imperative|pluperfect|imperfect|optative|ARGNOSG|ARGNOPL|ARGACSG|ARGACPL|ARGNO1|ARGNO3|ARGNO3|ARGAC1|ARGAC2|ARGAC3|future|aorist)(\\.(present-subjunctive|perfect-subjunctive|masdar-imperfective|present-indicative|future-subjunctive|present-perfect|masdar-perfect|conditional|imperative|pluperfect|imperfect|optative|ARGNOSG|ARGNOPL|ARGACSG|ARGACPL|ARGNO1|ARGNO3|ARGNO3|ARGAC1|ARGAC2|ARGAC3|future|aorist))*"
+              "pattern": "(present-subjunctive|perfect-subjunctive|masdar-imperfective|present-indicative|future-subjunctive|present-perfect|masdar-perfect|conditional|imperative|pluperfect|imperfect|optative|ARGNOSG|ARGNOPL|ARGACSG|ARGACPL|ARGNO1|ARGNO2|ARGNO3|ARGAC1|ARGAC2|ARGAC3|future|aorist)(\\.(present-subjunctive|perfect-subjunctive|masdar-imperfective|present-indicative|future-subjunctive|present-perfect|masdar-perfect|conditional|imperative|pluperfect|imperfect|optative|ARGNOSG|ARGNOPL|ARGACSG|ARGACPL|ARGNO1|ARGNO2|ARGNO3|ARGAC1|ARGAC2|ARGAC3|future|aorist))*"
             },
             "rdfType": "http://purl.org/linguistics/gold/FeatureStructure"
           },
